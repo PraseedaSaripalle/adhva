@@ -48,8 +48,6 @@ INSTALLED_APPS = [
 #     'django.contrib.staticfiles',
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.runserver_nostatic',
-    'django.contrib.staticfiles'
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
