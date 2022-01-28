@@ -25,7 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qc^814(91-+u84y_#70-7#*3ryhzoi33s&du9t(ok%6iu)emr)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#for heruku deployment debug to be false for local true
+#DEBUG = True
+DEBUG = False
 #for heruku deployment
 ALLOWED_HOSTS = ['adhva.herokuapp.com','127.0.0.1' ]
 #for local deployment
@@ -42,15 +44,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
 ]
-
+# for heruku, 'whitenoise.runserver_nostatic',
+#     'django.contrib.staticfiles',
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.runserver_nostatic',
+    'django.contrib.staticfiles'
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'adhva.urls'
@@ -123,9 +129,10 @@ USE_TZ = True
 # for local deployment
 #STATIC_URL = '/static/'
 #STATICFILES_DIRS= [os.path.join(BASE_DIR,'/static/')]
-# for heruku deployment
+# for heruku or regular deployment
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
