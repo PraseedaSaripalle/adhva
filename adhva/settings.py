@@ -123,13 +123,13 @@ USE_TZ = True
 # for local deployment
 #STATIC_URL = '/static/'
 #STATICFILES_DIRS= [os.path.join(BASE_DIR,'/static/')]
-# for heruku deployment
+# for heruku or regular deployment
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, '/static/'),
 )
 
 # Default primary key field type
